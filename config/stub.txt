@@ -1,0 +1,19 @@
+gameloop
+read Score:int
+read TurnIndex:int
+loop 6 read face:string(9)
+write R msg
+
+STATEMENT
+Jrke's Special
+-The Lost Child Ep2-The Cube Enigma
+-Score = sum(for each face(total no. of correct colored block^2)) + (400 - TurnIndex)
+-Score as much as points you can or solve the cube as early as possible
+
+INPUT
+Score: Your current score based on current cube's state and turnIndex
+TurnIndex: the Index of this turn starts from 0
+face: the (wryobg) representation of the one side of face of cube
+
+OUTPUT
+The desired move you wanna play + message

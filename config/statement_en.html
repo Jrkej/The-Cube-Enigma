@@ -1,0 +1,163 @@
+﻿﻿<div id="statement_back" class="statement_back" style="display:none"></div>
+  <div class="statement-body">
+    <div class="statement-section statement-goal">
+      <h1>
+        <span class="icon icon-goal">&nbsp;</span>
+        <span>The Goal</span>
+      </h1>
+      <div class="statement-goal-content">
+         This is a optimization puzzle in which you to score as much as points you can or solve in least number of moves
+        <br>
+      </div>
+    </div>  
+  <div style="color: #7cc576;
+                    background-color: rgba(14, 97, 21, .1);
+                    padding: 2px;">
+
+    <h1>
+      <span class="icon icon-rules">&nbsp;</span>
+      <span>Rules</span>
+    </h1>
+    <div class="statement-rules-content" color = #f2000>
+     You have to play various moves in 3x3x3 Rubik's cube to solve it in least moves or scoring maximum point after the end of game which is after <const>400</const> turns.
+</div>
+</div>
+<br>
+<br><hr>
+<strong>Moves</strong>
+   <br>
+<br>
+<b>There are <i>18</i> moves in total for a 3x3x3 Cube.</b><br><br>
+<const>12</const> of them are :-<br>
+
+<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/456e7ebe4eb1734f427d269a72b591c9a1a7353846429bcd028ffdaf8f37fa1d.JPG>
+<br>
+<br>
+Other <const>6</const> are twice of those -<br>
+<ul>
+<li><b>R2</b> - Two times <b>R</b>.</li>
+<li><b>L2</b> - Two times <b>L</b>.</li>
+<li><b>U2</b> - Two times <b>U</b>.</li>
+<li><b>D2</b> - Two times <b>D</b>.</li>
+<li><b>F2</b> - Two times <b>F</b>.</li>
+<li><b>B2</b> - Two times <b>B</b>.</li>
+<br></ul>
+<hr>
+<br>
+<strong>CUBE</strong><br>
+<div>
+<br>
+The input of cube to you is give in for of <b>wryobg</b> form(<b>W</b>hite, <b>R</b>ed, <b>Y</b>ellow, <b>O</b>range, <b>B</b>lue, <b>G</b>reen). Typical structure of cube looks like -
+<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/b4339320c0291174262f938c30ae07183066602e1a5f68299e3c2e60c3d34791.png>
+<br>
+For each face you will get one line input representing the state of face. Suppose if input for a face is - "wrboygbob" so the face will be:-<br>
+------<br>
+|wrb|<br>
+|oyg|<br>
+|bob|<br>
+------<br>
+Visual aid for the same:-<br>
+<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/349cece878d96b024bb85d79e64b718d506ac6af949922d633d8bc56d8371865.png>
+<br>
+So, you will get <const>6</const> lines input for cube representation:-<br><br>
+- Line 1 for <b>White</b> face.<br>
+- Line 2 for <b>Red</b> face.<br>
+- Line 3 for <b>Yellow</b> face.<br>
+- Line 4 for <b>Orange</b> face.<br>
+- Line 5 for <b>Blue</b> face.<br>
+- Line 6 for <b>Green</b> face.<br>
+<br>
+<strong>EXAMPLE</strong><br><br>
+An example for the representation of cube.<br><br>
+<b>6 Input Lines- <br></b>
+gogwwbbbw<br>
+ygworbrro<br>
+oobrygbgo<br>
+ryyrooyrw<br>
+yygbbwogr<br>
+rwgygwbyw<br>
+<br>
+<b>Structure of Cube according to input lines index</b> - <br>
+&nbsp4<br>3012<br>&nbsp5
+<br>
+<br><b>Representation for the same -</b><br>
+<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/287c6c84ac08b49486d228b60cfddcd4b56ae423203cc33f7330757cba2dd701.png>
+You can also have a look at animation pane that structured cube is shown for giving easy configuration and debugings.
+<br><br>
+<hr>
+<br>
+<strong>Computing SCORE for a given state:-</strong><br><br>
+If the <b>CUBE</b> is already solved then the score = <const>1000</const> + (<const>400</const> - <var>turnIndex</var>) in which <var>turnIndex</var> is the number of moves you have played.<br>Else if <b>CUBE</b> is not solved then score = (sum for the value of all <const>6</const> faces of cube - (<const>400</const> - <var>turnIndex</var>))<br><br>Value of each face is calculated by :-<br><b>Number of correct coloured sides in face ^ 2</b> (colour of sides matching the center piece's colour)<br><br>For exaple in this face:-<br>
+<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/349cece878d96b024bb85d79e64b718d506ac6af949922d633d8bc56d8371865.png>
+<br>
+As this is yellow face (center piece is yellow),So
+Number of correct coloured sides = <const>1</const> only the center piece so <const>1</const>^<const>2</const> = 1, So value for this face is <const>1</const>.
+<br>
+<hr>
+
+<div class="statement-victory-conditions">
+                <div class="icon victory"></div>
+                <div class="blk">
+                    <div class="title">Victory Conditions</div>
+                    <div class="text">
+                        <ul style="padding-bottom: 0;">
+                            <li>You solved the Cube.</li>
+                            <li>In <const>400</const> turns, you haven't provided invalid move..</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+<div class="statement-lose-conditions">
+                <div class="icon lose"></div>
+                <div class="blk">
+                    <div class="title">Lose Conditions</div>
+                    <div class="text">
+                        <ul style="padding-bottom: 0;">
+                            <li>You fail to provide a valid move in time.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+<br>
+<div style="color: #7cc576;
+background-color: rgba(124, 197, 118,.1);
+padding: 2px;">
+ You can look at the referee code which is openly provided <b><a target="_blank" href="https://github.com/Jrkej/The-Cube-Enigma">here</a></b> in a github repository.</div>
+Don't hesitate to change the viewer's options to help debug your code (<img style="opacity:.8;background:#20252a;" height="18" src="https://www.codingame.com/servlet/fileservlet?id=3463235186409" width="18">).<br><br>
+ <div class="statement-section statement-protocol">
+    <h1>
+      <span class="icon icon-protocol">&nbsp;</span>
+      <span>Game Input</span>
+    </h1>
+    <!-- Protocol block -->
+    <div class="blk">
+
+    </div><!-- END -->
+ 
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Input per turn</div>
+
+      <div class="text">       </ul><!-- END -->
+<ul>
+       <li>int <var>score</var> -  Your current score based on current cube's state and <var>turnIndex</var>.</li>
+       <li>int <var>turnIndex</var> -  the Index of this turn starts from 0.</li><li>Next <const>6</const> lines - String representing a face of cube in (wryobg) form.</li></ul
+ 
+ 
+<div class="blk">
+      <div class="title">Output</div>
+      <div class="text">
+       <p>A single line containing one of <const>18 MOVES</const> you want to play + <const>OPTIONAL MESSAGE</const>. 
+      </div>
+    </div>
+</div>
+<div class="blk">
+      <div class="title">Constraints</div>
+      <div class="text">Your code should respond under <const>50 ms</const>.</div>
+<div class="text">Game will automatically end after <const>400 turns</const>.</div></div>
+    </div>
+</div>
+</div>
+
+  </div>
+</div>
