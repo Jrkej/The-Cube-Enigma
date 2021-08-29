@@ -18,7 +18,7 @@ public class Referee extends AbstractReferee {
 	@Inject private TooltipModule tooltips;
 	@Inject	private EndScreenModule endScreenModule;
 	@Inject ToggleModule toggles;
-	private final int MAX_TURNS = 400;
+	private final int MAX_TURNS = 300;
 	private static final int TIME_PER_TURN = 50;
 	private static final int FIRST_TURN_TIME = 1000;
 	Player player = new Player();
@@ -109,8 +109,7 @@ public class Referee extends AbstractReferee {
     }
     
     private void updateScores(int turnIndex) {
-    	if (this.cube.isCubeSolved()) this.SCORE = 1000 + (this.MAX_TURNS - turnIndex);
-    	else this.SCORE = this.cube.value() + (this.MAX_TURNS - turnIndex);
+    	this.SCORE = this.cube.value();
     }
 
     @Override

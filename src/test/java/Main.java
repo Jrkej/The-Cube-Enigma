@@ -7,7 +7,7 @@ public class Main {
 		gameRunner.setAgent(Agent1.class);
 		//gameRunner.setAgent(Agent1.class);
 		
-		gameRunner.setTestCase("test0.json");
+		gameRunner.setTestCase("test3.json");
 
 		// Another way to add a player
 		// gameRunner.addAgent("python3 /home/user/player.py");

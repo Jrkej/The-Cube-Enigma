@@ -7,8 +7,8 @@ write R msg
 STATEMENT
 Jrke's Special
 -The Lost Child Ep2-The Cube Enigma
--Score = sum(for each face(total no. of correct colored block^2)) + (400 - TurnIndex)
--Score as much as points you can or solve the cube as early as possible
+-Score = sum(for each face(total no. of correct colored block^2))
+-Score as much as points you can! Remember YOU CAN'T SOLVE THE CUBE!
 
 INPUT
 Score: Your current score based on current cube's state and turnIndex

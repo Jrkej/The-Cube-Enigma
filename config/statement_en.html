@@ -6,7 +6,8 @@
         <span>The Goal</span>
       </h1>
       <div class="statement-goal-content">
-         This is a optimization puzzle in which you to score as much as points you can or solve in least number of moves
+         This is a optimization puzzle in which you to score as much as points you can!<br>
+<b>NOTE - TEST CASE PROVIDED CAN'T BE SOLVED SO JUST SCORE POINTS!</b>
         <br>
       </div>
     </div>  
@@ -19,7 +20,7 @@
       <span>Rules</span>
     </h1>
     <div class="statement-rules-content" color = #f2000>
-     You have to play various moves in 3x3x3 Rubik's cube to solve it in least moves or scoring maximum point after the end of game which is after <const>400</const> turns.
+     You have to play various moves in 3x3x3 Rubik's cube for scoring as much points you can till the end of game which is after <const>300</const> turns.
 </div>
 </div>
 <br>
@@ -87,7 +88,7 @@ You can also have a look at animation pane that structured cube is shown for giv
 <hr>
 <br>
 <strong>Computing SCORE for a given state:-</strong><br><br>
-If the <b>CUBE</b> is already solved then the score = <const>1000</const> + (<const>400</const> - <var>turnIndex</var>) in which <var>turnIndex</var> is the number of moves you have played.<br>Else if <b>CUBE</b> is not solved then score = (sum for the value of all <const>6</const> faces of cube - (<const>400</const> - <var>turnIndex</var>))<br><br>Value of each face is calculated by :-<br><b>Number of correct coloured sides in face ^ 2</b> (colour of sides matching the center piece's colour)<br><br>For exaple in this face:-<br>
+<b>CUBE</b>'s score = sum for the value of all <const>6</const> faces of cube <br><br>Value of each face is calculated by :-<br><b>Number of correct coloured sides in face ^ 2</b> (colour of sides matching the center piece's colour)<br><br>For exaple in this face:-<br>
 <img src = https://cdn-games.codingame.com/community/3721214-1617778077928/349cece878d96b024bb85d79e64b718d506ac6af949922d633d8bc56d8371865.png>
 <br>
 As this is yellow face (center piece is yellow),So
@@ -101,8 +102,7 @@ Number of correct coloured sides = <const>1</const> only the center piece so <co
                     <div class="title">Victory Conditions</div>
                     <div class="text">
                         <ul style="padding-bottom: 0;">
-                            <li>You solved the Cube.</li>
-                            <li>In <const>400</const> turns, you haven't provided invalid move..</li>
+                            <li>In <const>300</const> turns, you haven't provided invalid move..</li>
                         </ul>
                     </div>
                 </div>
@@ -154,7 +154,7 @@ Don't hesitate to change the viewer's options to help debug your code (<img styl
 <div class="blk">
       <div class="title">Constraints</div>
       <div class="text">Your code should respond under <const>50 ms</const>.</div>
-<div class="text">Game will automatically end after <const>400 turns</const>.</div></div>
+<div class="text">Game will automatically end after <const>300 turns</const>.</div></div>
     </div>
 </div>
 </div>
