@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.codingame.com</groupId>
-	<artifactId>The-Lost-Child-Ep2-The-Cube-Enigma</artifactId>
+	<artifactId>The-Cube-Enigma</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
     <properties>

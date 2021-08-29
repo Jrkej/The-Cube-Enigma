@@ -20,7 +20,7 @@ public class Animation {
     private final static int NAMECOLOR = 0x4060ff;
     private final static int MSG_COLOR = 0xfeb67b;
     private final static int TURN_BLOCK_COLOR = 0x00c0ff;
-    private final static int TURN_COLOR = 0xfa6607;
+    private final static int TURN_COLOR = 0x2f2b2b;
     private final static int TITLE_COLOR = 0xff1493;
     private final static int TITLE_SIZE = 100;
     private final static int SUBTITLE_COLOR = 0xf60000;
@@ -98,13 +98,12 @@ public class Animation {
     	this.updateStructuredCube(cube);
     	this.updateCubeTooltips(cube);
 
-    	this.graphics.createText().setText("The Lost Child Episode-2").setX(SCREEN_WIDTH / 2).setY(70).setAnchor(0.5).setFontSize(TITLE_SIZE).setFillColor(TITLE_COLOR);
     	this.graphics.createText().setText("The Cube Enigma!").setX((SCREEN_WIDTH - AVATAR_WIDTH - AVATARX - 10) + AVATAR_WIDTH / 2).setY(AVATARY - 30).setAnchor(0.5).setFontSize(SUBTITLE_SIZE).setFillColor(SUBTITLE_COLOR);
     	
-    	this.turnText = this.graphics.createText().setText("TURN : 0").setX(SCREEN_WIDTH - AVATAR_WIDTH - AVATARX - 65).setY(AVATARY + AVATAR_HEIGHT + 30).setAnchorX(0).setAnchorY(0.5).setFillColor(TURN_COLOR).setFontSize(30);
+    	this.turnText = this.graphics.createText().setText("TURN : 0").setX(SCREEN_WIDTH - AVATAR_WIDTH - AVATARX - 65).setY(AVATARY + AVATAR_HEIGHT + 30).setAnchorX(0).setAnchorY(0.5).setFillColor(TURN_COLOR).setFontSize(32);
     	this.msg = this.graphics.createText().setText("").setX(AVATARX + (AVATAR_WIDTH / 2)).setY(AVATARY + AVATAR_HEIGHT + 130).setAnchor(0.5).setFillColor(MSG_TEXT_COLOR).setFontSize(MSG_SIZE);
     	this.move = this.graphics.createText().setText("").setX(SCREEN_WIDTH / 2 - 15).setY(1010).setFontSize(60).setFillColor(this.colors[5]).setAnchor(0.5);
-    	this.turnScore = this.graphics.createText().setText("SCORE : " + score).setX(SCREEN_WIDTH - AVATARX + 45).setY(AVATARY + AVATAR_HEIGHT + 30).setAnchorX(1).setAnchorY(0.5).setFillColor(TURN_COLOR).setFontSize(30);
+    	this.turnScore = this.graphics.createText().setText("SCORE : " + score).setX(SCREEN_WIDTH - AVATARX + 45).setY(AVATARY + AVATAR_HEIGHT + 30).setAnchorX(1).setAnchorY(0.5).setFillColor(TURN_COLOR).setFontSize(32);
     	
     	this.tooltips.setTooltipText(this.player, "PLAYER\n----------------------------------------\nMESSAGE :\nMOVE :");
     	this.tooltips.setTooltipText(this.turn, "THE CUBE ENIGMA!\n--------------------------------------\nTURN INDEX : 0\nSCORE : " + score);
