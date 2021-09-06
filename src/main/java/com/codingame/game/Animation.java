@@ -10,7 +10,6 @@ public class Animation {
 	private TooltipModule tooltips;
 	private final static int SCREEN_WIDTH = 1920;
     private final static int SCREEN_HEIGHT = 1080;
-    private final static int BG_COLOR = 0x808080;
     private final static int AVATAR_WIDTH = 250;
     private final static int AVATAR_HEIGHT = 250;
     private final static int AVATARX = 100;
@@ -49,7 +48,7 @@ public class Animation {
     }
     
     public void init(Cube cube, int score, ToggleModule toggles) {
-    	this.graphics.createRectangle().setFillColor(BG_COLOR).setX(0).setY(0).setWidth(SCREEN_WIDTH).setHeight(SCREEN_HEIGHT).setZIndex(-2);
+    	this.graphics.createSprite().setImage("background.jpg").setX(0).setY(0).setBaseWidth(SCREEN_WIDTH).setBaseHeight(SCREEN_HEIGHT);
     	this.player = this.graphics.createRoundedRectangle().setX(AVATARX - 70).setY(AVATARY - 80).setWidth(AVATAR_WIDTH + 140).setHeight(AVATAR_HEIGHT + 350).setFillColor(MSG_COLOR);
     	this.graphics.createSprite().setImage(this.playerAvatar).setX(AVATARX).setY(AVATARY).setBaseWidth(AVATAR_WIDTH).setBaseHeight(AVATAR_HEIGHT);
     	this.graphics.createText().setText(this.playerId).setX(NAMEX).setY(NAMEY).setAnchor(0.5).setFontSize(NAMESIZE).setFillColor(NAMECOLOR);
@@ -89,6 +88,8 @@ public class Animation {
     	this.tooltips.setTooltipText(this.player, "PLAYER\n----------------------------------------\nMESSAGE : " + msg + "\nMOVE : " + move);
     	this.tooltips.setTooltipText(this.turn, "THE CUBE ENIGMA!\n--------------------------------------\nTURN INDEX : " + turn + "\nSCORE : " + score);
     	this.graphics.commitEntityState(0.0, this.move);
+    	this.graphics.commitEntityState(0.0, this.msg);
+    	this.graphics.commitEntityState(0.0, this.player);
     }
     
     private void updateStructuredCube(Cube cube) {
