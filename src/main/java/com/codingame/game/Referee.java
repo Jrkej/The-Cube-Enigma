@@ -8,6 +8,7 @@ import com.codingame.gameengine.module.entities.GraphicEntityModule;
 import com.codingame.gameengine.module.tooltip.TooltipModule;
 import com.codingame.gameengine.module.toggle.ToggleModule;
 import com.google.inject.Inject;
+import modules.cubeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public class Referee extends AbstractReferee {
 	@Inject private GraphicEntityModule graphics;
 	@Inject private TooltipModule tooltips;
 	@Inject	private EndScreenModule endScreenModule;
+	@Inject	private cubeView tdViewer;
 	@Inject ToggleModule toggles;
 	private final int MAX_TURNS = 300;
 	private static final int TIME_PER_TURN = 50;
@@ -36,8 +38,9 @@ public class Referee extends AbstractReferee {
     			this.gameManager.setFirstTurnMaxTime(FIRST_TURN_TIME);
     			this.cube = new Cube();
     			this.cube.load(this.gameManager.getTestCaseInput().get(0));
+    			this.tdViewer.setCube(this.cube);
     			SDK = new Animation(this.graphics, this.tooltips, this.gameManager.getPlayer().getNicknameToken(), this.gameManager.getPlayer().getAvatarToken());
-    			this.updateScores(0);
+    			this.updateScores();
     			SDK.init(cube, this.SCORE, toggles);
     				
     		} catch (Exception e) {
@@ -62,9 +65,11 @@ public class Referee extends AbstractReferee {
     			}
     			if (this.message.length() >= 20) this.message = this.message.substring(0, 20);
     		}
+    		this.tdViewer.setState();
     		boolean correct = this.cube.play(Splits.get(0));
     		if (correct) {
-    			this.updateScores(turn);
+    			this.tdViewer.setMove(Splits.get(0));
+    			this.updateScores();
     			this.gameManager.addToGameSummary(this.gameManager.getPlayer().getNicknameToken() + " Played - " + Splits.get(0));
     			if (turn >= this.MAX_TURNS || this.cube.isCubeSolved()) {
     				this.gameManager.winGame(this.cube.isCubeSolved()?("You solved cube in " + turn + " moves!"):("Your Score = " + this.SCORE));
@@ -108,7 +113,7 @@ public class Referee extends AbstractReferee {
     	}
     }
     
-    private void updateScores(int turnIndex) {
+    private void updateScores() {
     	this.SCORE = this.cube.value();
     }
 

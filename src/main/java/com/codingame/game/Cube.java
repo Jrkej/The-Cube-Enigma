@@ -1,6 +1,6 @@
 package com.codingame.game;
 
-class Cube {
+public class Cube {
     public int faces[][][] = new int[6][3][3];
     private int temp[][] = new int[3][3];
     private int ts[][] = new int[4][3];
