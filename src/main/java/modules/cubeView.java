@@ -42,6 +42,7 @@ public class cubeView implements Module {
      */
     @Override
     public final void onAfterOnEnd() {
+    	this.gameManager.setViewData("cubeviewer", "end");
     }
     
     public void setCube(Cube cube) {

@@ -6,7 +6,7 @@ write R msg
 
 STATEMENT
 Jrke's Special
--The Lost Child Ep2-The Cube Enigma
+-The Cube Enigma
 -Score = sum(for each face(total no. of correct colored block^2))
 -Score as much as points you can! Remember YOU CAN'T SOLVE THE CUBE!
 

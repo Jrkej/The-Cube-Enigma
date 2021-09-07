@@ -197,6 +197,35 @@ export class animator {
         rotateSlice(0, turnAnglePerFrame * 2);
     }
   }
+  	end(prog, url) {
+		  for (let i = 0; i < k*k*k; i++) {
+			var x = (i%SIZE)
+			var y = ( ( ( i/(SIZE  ) ) | 0 ) % SIZE);
+			var z = ( ( ( i/(SIZE*SIZE) ) | 0 ) % SIZE);
+			x -= 1
+			y -= 1
+			z -= 1
+			cubes[i].position.x = x + (5*prog*x);
+			cubes[i].position.y = y + (5*prog*y) - 3*prog;
+			cubes[i].position.z = z + (5*prog*z);
+		  }
+	}
+	
+	firstEnd(url) {
+		for (let i = 0; i < k*k*k; i++) {
+			var textureLoader = new THREE.TextureLoader();
+			var crateTexture = textureLoader.load(url);
+			scene.remove(cubes[i])
+			cubes[i] = new THREE.Mesh(
+				new THREE.BoxGeometry(1, 1, 1),
+				new THREE.MeshBasicMaterial({
+					map: crateTexture
+				}) 
+				);
+			cubes[i].material.side = THREE.DoubleSide;
+			scene.add(cubes[i]);
+		}
+	}
 }
 
 // 0 <= row < k

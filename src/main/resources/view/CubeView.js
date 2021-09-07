@@ -7,6 +7,7 @@ export class CubeViewer {
   viewer = document.body.children[0].children[1].children[0];
   anime = new animator(this.viewer)
   initState = "Nan";
+  ended = false
 
   static get name () {
     return 'cubeviewer'
@@ -34,6 +35,9 @@ export class CubeViewer {
     if (globalData == undefined) {
       return null;
     }
+    if (players[0].avatar.textureCacheIds.length > 1) {
+      this.url = players[0].avatar.textureCacheIds[1];
+    }
     let data = globalData;
     this.initState = data;
     this.anime.starter();
@@ -59,6 +63,13 @@ export class CubeViewer {
     }
     if (currentData.data == undefined) return null;
     const frameData = currentData.data
+    if (frameData == "end") {
+      if (this.ended == false) this.anime.firstEnd(this.url);
+      this.ended = true;
+      this.anime.end(progress);
+      return null;
+    }
+    this.ended = false;
     if (currentData.number != lastTurn) {
       lastProgress = 0;
       this.anime.formCube();
@@ -83,6 +94,5 @@ export class CubeViewer {
    * @param delta time between current and last call. Aproximately 16ms by default.
    */
   animateScene (delta) {
-
   }
 }
