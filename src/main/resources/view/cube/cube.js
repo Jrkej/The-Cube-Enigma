@@ -15,16 +15,12 @@ var rowRotationAxis   = new THREE.Vector4(0,1,0,0);
 var colRotationAxis   = new THREE.Vector4(1,0,0,0);
 var sliceRotationAxis = new THREE.Vector4(0,0,1,0);
 
-var indMapRow   = [[0,  2, 20, 18], [1, 11, 19,  9]]; // indices of the corner and center pieces of the 0th row
-var indMapCol   = [[0, 18, 24,  6], [3,  9, 21, 15]]; // indices of the corner and center pieces of the 0th column
-var indMapSlice = [[0,  2,  8,  6], [3,  1,  5,  7]]; // indices of the corner and center pieces of the 0th slice
-
 var turnAnglePerFrame = (Math.PI/2);
 
 let cubes = []
 let scene = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera( 75, 16/9, 0.1, 1000 );
-let renderer = new THREE.WebGLRenderer({alpha : true});
+let renderer = new THREE.WebGLRenderer({alpha : true, antialias:true});
 let controls = new orbit.OrbitControls(camera, renderer.domElement);
 let k = 3;
 let faces = [
