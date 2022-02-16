@@ -50,7 +50,7 @@ Other <const>6</const> are twice of those -<br>
 <br>
 The states provided in test cases are non-realistic they can't be solved, They are genrated randomily <b><a target="_blank" href="https://github.com/Jrkej/The-Cube-Enigma/blob/main/config/testCreater.py#L66">here is the test case generator</a></b>. This is done to prevent hardcoding of short solutions so just score more.<br><br>
 The input of cube to you is give in for of <b>wryobg</b> form(<b>W</b>hite, <b>R</b>ed, <b>Y</b>ellow, <b>O</b>range, <b>B</b>lue, <b>G</b>reen). Typical structure of cube looks like -
-<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/b4339320c0291174262f938c30ae07183066602e1a5f68299e3c2e60c3d34791.png>
+<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/f77fbcc1c2bb17dfd131df4132a22942b75c1a9e6d13ac825ba732464b2e0196.png>
 <br>
 For each face you will get one line input representing the state of face. Suppose if input for a face is - "wrboygbob" so the face will be:-<br>
 ------<br>
@@ -82,19 +82,26 @@ rwgygwbyw<br>
 <b>Structure of Cube according to input lines index</b> - <br><br>
  | 4<br>3012<br>| 5
 <br>
-<br><b>Representation for the same -</b><br>
-<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/287c6c84ac08b49486d228b60cfddcd4b56ae423203cc33f7330757cba2dd701.png>
+<br><b>Representation for the same -</b><br><br>
+<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/b4fb94711b3f7734e9b42c6f281bf3bc86ad7be4cfa974b846edd2da427dfb23.png><br>
 You can also have a look at animation pane that structured cube is shown for giving easy configuration and debugings.
 <br><br>
 <hr>
 <br>
 <strong>Computing SCORE for a given state:-</strong><br><br>
-<b>CUBE</b>'s score = sum for the value of all <const>6</const> faces of cube <br><br>Value of each face is calculated by :-<br><b>Number of correct coloured sides in face ^ 2</b> (colour of sides matching the center piece's colour)<br><br>For exaple in this face:-<br>
+<b>CUBE</b>'s score = sum for the value of all <const>6</const> faces of cube <br><br>Value of each face is calculated by :-<br><b>Number of correct coloured sides in face ^ 2</b> (colour of sides matching the center piece's colour)<br><br>For example in this face:-<br>
 <img src = https://cdn-games.codingame.com/community/3721214-1617778077928/349cece878d96b024bb85d79e64b718d506ac6af949922d633d8bc56d8371865.png>
 <br>
 As this is yellow face (center piece is yellow),So
 Number of correct coloured sides = <const>1</const> only the center piece so <const>1</const>^<const>2</const> = 1, So value for this face is <const>1</const>.
 <br>
+
+
+<br>Another example in this face:-<br>
+<img src = https://cdn-games.codingame.com/community/3721214-1617778077928/a209b374d068aca60b104832b2563aa9d247f82d0d3ae952b65bfdfd0a72d9ac.png>
+<br>
+As this is red face (center piece is red),So
+Number of correct coloured sides = <const>3</const> center, bottom mid, bottom left. <const>3</const>^<const>2</const> = 9, So value for this face is <const>9</const>.
 <hr>
 
 <div class="statement-victory-conditions">
