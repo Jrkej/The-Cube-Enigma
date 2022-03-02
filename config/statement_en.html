@@ -20,7 +20,7 @@
       <span>Rules</span>
     </h1>
     <div class="statement-rules-content" color = #f2000>
-     You have to play various moves in 3x3x3 Rubik's cube for scoring as much points you can till the end of game which is after <const>300</const> turns.
+     You have to play various moves in 3x3x3 Rubik's cube for scoring as much points you can till the end of game which is after <const>300</const> turns. tests are designed so that the cube can't be solved so just score more.
 </div>
 </div>
 <br>
@@ -89,7 +89,7 @@ You can also have a look at animation pane that structured cube is shown for giv
 <hr>
 <br>
 <strong>Computing SCORE for a given state:-</strong><br><br>
-<b>CUBE</b>'s score = sum for the value of all <const>6</const> faces of cube <br><br>Value of each face is calculated by :-<br><b>Number of correct coloured sides in face ^ 2</b> (colour of sides matching the center piece's colour)<br><br>For example in this face:-<br>
+<b>CUBE</b>'s score = sum for the value of all <const>6</const> faces of cube - PENALTY <br><br>Value of each face is calculated by :-<br><b>Number of correct coloured sides in face ^ 2</b> (colour of sides matching the center piece's colour)<br><br>For example in this face:-<br>
 <img src = https://cdn-games.codingame.com/community/3721214-1617778077928/349cece878d96b024bb85d79e64b718d506ac6af949922d633d8bc56d8371865.png>
 <br>
 As this is yellow face (center piece is yellow),So
@@ -103,6 +103,13 @@ Number of correct coloured sides = <const>1</const> only the center piece so <co
 As this is red face (center piece is red),So
 Number of correct coloured sides = <const>3</const> center, bottom mid, bottom left. <const>3</const>^<const>2</const> = 9, So value for this face is <const>9</const>.
 
+<br>
+<br>
+<b>Calculating Penalty</b><br>
+Penalty = max(0, int(<var>turn</var>/<const>5</const>) - <const>20</const>)
+<br>
+So, it means no penalty till <const>104th</const> turn after that it increases every <const>5th</const> turn.
+A terminanting command is also added to end the game early if you want to end the game then print `E`.
 <br>
 <br>
 <b>NOTE -</b> <i>THE SCORE FOR EACH TURN IS THE SCORE OF CUBE AT THAT TURN AND <b>THE FINAL SCORE OF THE GAME IS THE CUBE'S SCORE AT LAST TURN</i></b>
@@ -160,7 +167,7 @@ The Cube is <b>3D</b> You can also rotate it!<br><br>
 <div class="blk">
       <div class="title">Output</div>
       <div class="text">
-       <p>A single line containing one of <const>18 MOVES</const> you want to play + <const>OPTIONAL MESSAGE</const>. 
+       <p>A single line containing either one of <const>18 MOVES</const> you want to play or terminating command - <b>E</b> + <const>OPTIONAL MESSAGE</const>. 
       </div>
     </div>
 </div>

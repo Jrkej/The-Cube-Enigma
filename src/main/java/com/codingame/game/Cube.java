@@ -261,7 +261,7 @@ public class Cube {
         }
     }
 
-    public int value() {
+    public int value(int turn) {
         int value = 0;
         for (int face = 0; face < 6; face++) {
             int corr = 0;
@@ -270,7 +270,11 @@ public class Cube {
             }
             value += corr * corr;
         }
-        return value;
+
+        int penalty = 0;
+        if (turn >= 100) penalty = (int)(turn/5) - 20;
+
+        return value - penalty;
     }
     
     public String state(int face) {
@@ -300,6 +304,7 @@ public class Cube {
         else if (move.equals("B2")) B(2);
         else if (move.equals("L2")) L(2);
         else if (move.equals("D2")) D(2);
+        else if (move.equals("E")) return true;
         else return false;
         return true;
     }

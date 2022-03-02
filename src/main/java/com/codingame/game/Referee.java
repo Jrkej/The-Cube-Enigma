@@ -40,7 +40,7 @@ public class Referee extends AbstractReferee {
     			this.cube.load(this.gameManager.getTestCaseInput().get(0));
     			this.tdViewer.setCube(this.cube);
     			SDK = new Animation(this.graphics, this.tooltips, this.gameManager.getPlayer().getNicknameToken(), this.gameManager.getPlayer().getAvatarToken());
-    			this.updateScores();
+    			this.updateScores(0);
     			SDK.init(cube, this.SCORE, toggles);
     				
     		} catch (Exception e) {
@@ -69,9 +69,9 @@ public class Referee extends AbstractReferee {
     		boolean correct = this.cube.play(Splits.get(0));
     		if (correct) {
     			this.tdViewer.setMove(Splits.get(0));
-    			this.updateScores();
+    			this.updateScores(turn);
     			this.gameManager.addToGameSummary(this.gameManager.getPlayer().getNicknameToken() + " Played - " + Splits.get(0));
-    			if (turn >= this.MAX_TURNS || this.cube.isCubeSolved()) {
+    			if (turn >= this.MAX_TURNS || this.cube.isCubeSolved() || Splits.get(0).equals("E")) {
     				this.gameManager.winGame(this.cube.isCubeSolved()?("You solved cube in " + turn + " moves!"):("Your Score = " + this.SCORE));
     			}
     		}  else {
@@ -113,8 +113,8 @@ public class Referee extends AbstractReferee {
     	}
     }
     
-    private void updateScores() {
-    	this.SCORE = this.cube.value();
+    private void updateScores(int turn) {
+    	this.SCORE = this.cube.value(turn);
     }
 
     @Override
